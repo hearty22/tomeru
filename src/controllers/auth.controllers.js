@@ -84,3 +84,17 @@ export const logout = (req, res) =>{
     })
   }
 }
+
+export const profile = (req, res) => {
+  try {
+    return res.status(200).json({
+      ok: true,
+      data: req.user
+    })
+  } catch (error) {
+    return res.status(500).json({
+      ok: false,
+      error: `error interno en el profile: ${error}`
+    })
+  }
+}
