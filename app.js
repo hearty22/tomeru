@@ -5,7 +5,7 @@ import {connectDB} from "./src/config/database.js";
 import "./src/models/index.js";
 import  router  from "./src/routes/index.js";
 import  cookieParser  from "cookie-parser";
-
+//prueba de commit la puta madre git, vos con tus verificaciones de credenciales cada push la puta madre
 const port = process.env.PORT;
 const app = express();
 
