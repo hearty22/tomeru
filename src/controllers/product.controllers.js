@@ -62,3 +62,17 @@ export const updateProduct = (req, res) => {
     })
   }
 };
+
+export const deleteProduct = (req, res) => {
+  try {
+    return res.status(200).json({
+      ok: true,
+      message: "producto eliminado exitosamente"
+    })
+  } catch (error) {
+    return res.status(500).json({
+      ok: false,
+      error: `error interno en el deleteProduct: ${error}`
+    })
+  }
+};
