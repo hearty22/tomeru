@@ -43,9 +43,25 @@ export const updateUser = async (req, res) => {
   try {
     const info = req.user;
     const user = await userModel.findById(info._id);
+    const {first_name, last_name, age, avatar, phone} = req.body.profile;
+
+    user.profile.first_name = first_name || user.profile.first_name;
+    user.profile.last_name = last_name || user.profile.last_name;
+    user.profile.age = age || user.profile.age;
+    user.profile.avatar = avatar || user.profile.avatar;
+    user.profile.phone = phone || user.profile.phone;
+    
+    await user.save();
+    
+    return res.status(200).json({
+      ok: true,
+      message: "usuario actualizado exitosamente",
+      data: user,
+    });
   } catch (error) {
     return res.status(500).json({
-      
+      ok: false,
+      message: `error interno en el updateUser: ${error}`,
     }) 
   }
 };
