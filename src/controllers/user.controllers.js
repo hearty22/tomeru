@@ -38,3 +38,14 @@ export const getUser = async (req, res) =>{
     }) 
   }
 }
+
+export const updateUser = async (req, res) => {
+  try {
+    const info = req.user;
+    const user = await userModel.findById(info._id);
+  } catch (error) {
+    return res.status(500).json({
+      
+    }) 
+  }
+};
